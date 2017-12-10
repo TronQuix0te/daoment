@@ -1,14 +1,12 @@
 <?php
 
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Index extends Model
 {
   public static function boot() {
     parent::boot();
-
     self::updated(function($model) {
       $index_value = new IndexValue();
       $index_value->index_id = $model->id;
@@ -25,7 +23,6 @@ class Index extends Model
       ->get();
   }
 
-
   public function recalculate($coins) {
     if ($this->divisor == null) {
       $this->divisor = array_sum(array_map('floatval', array_column($coins, 'market_cap_usd'))) / 1000;
@@ -33,7 +30,6 @@ class Index extends Model
     $this->current_value = round(array_sum(array_map('floatval', array_column($coins, 'market_cap_usd'))) / $this->divisor, 2);
     $this->save();
   }
-
 
   public static function recalculateAll() {
     $coins = json_decode(file_get_contents('https://api.coinmarketcap.com/v1/ticker/?limit=500'), true);
