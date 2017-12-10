@@ -3,7 +3,7 @@
   "scripts": {
   },
   "env": {
-    "APP_KEY": base64:tjh86FEVW03mQPakFDUbWsBxNoHNIhA5eyqj+f3yFdA=
+    "APP_KEY": "base64:tjh86FEVW03mQPakFDUbWsBxNoHNIhA5eyqj+f3yFdA="
       "required": true
     },
     "APP_LOG": {errorlog}
