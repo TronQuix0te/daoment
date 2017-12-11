@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: arsen
- * Date: 08.12.17
- * Time: 23:46
- */
 namespace App\Services;
 
 use App\Models\Index;
@@ -32,7 +26,7 @@ class IndexService
      */
     public function get()
     {
-        return $this->model->orderby('position', 'asc')->withCount('history')->get();
+        return $this->model->orderby('position', 'asc')->get();
     }
 
     /**
@@ -44,7 +38,7 @@ class IndexService
     {
         switch ($period) {
             case 'day':
-                $date = '-1 day';
+                $date = '-3 day';
                 $format = 'H:m:s';
                 break;
             case 'month':
